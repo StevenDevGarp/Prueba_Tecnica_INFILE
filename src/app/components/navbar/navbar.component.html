@@ -1,0 +1,14 @@
+<mat-toolbar color="secondary" class="gap-4">
+    <a (click)="goHome()" class="cursor-pointer hover:text-blue-700">
+        <mat-icon>home</mat-icon>
+        <span>  Inicio</span>
+    </a>
+    <a routerLink="/" class="cursor-pointer hover:text-blue-700">
+        <mat-icon>category</mat-icon>
+        <span>  Categorías</span>
+    </a>
+    <a (click)="goNewsList()" class="cursor-pointer hover:text-blue-700">
+        <mat-icon>favorite</mat-icon>
+        <span>  Noticias</span>
+    </a>
+</mat-toolbar>

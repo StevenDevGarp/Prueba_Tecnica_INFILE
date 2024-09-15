@@ -1,0 +1,39 @@
+<div class="flex justify-center items-center px-20 mb-12">
+  <img 
+    src="https://plus.unsplash.com/premium_photo-1661949383375-8639a01e22b7?fm=jpg&w=3000&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MXx8bGFyZ29zfGVufDB8fDB8fHww" 
+    alt="img-hero"
+    class="w-full h-56 object-cover"
+  >  
+</div>
+<div class="flex justify-center items-center">
+  <h1 class="text-4xl font-bold text-center">Categorias</h1>
+  <app-filter/>
+  <app-news-recommended [categoryId]=""></app-news-recommended>
+</div>
+<div class="app flex justify-center items-center p-20">
+  <div class="app-card-list grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 2xl:grid-cols-5 gap-32">
+    <article *ngFor="let newsItem of news; let i = index"
+      class="card shadow-lg rounded-3xl overflow-hidden"
+      [ngClass]="{
+        'bg-[#A2AAB1]': i % 3 === 0,
+        'bg-[#39b2ae]': i % 3 === 1,
+        'bg-[#d02e6e]': i % 3 === 2
+      }">
+      <div>
+        <img 
+          src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRXJA32WU4rBpx7maglqeEtt3ot1tPIRWptxA&s" 
+          alt="Noticia imagen" 
+          class="w-full h-48 object-cover"
+        />
+      </div>
+      <div class="card-body text-white p-6">
+        <h2 class="text-xl font-semibold mt-2">{{ newsItem.tituloNoticia }}</h2>
+        <p class="body-content mt-4">{{ newsItem.descripcionBreve }}</p>
+        <button class="button button-primary mt-4 text-white px-4 py-2 underline"
+        (click)="viewDetails(newsItem)">
+          <i class="fa fa-chevron-right"></i> Ver más
+        </button>
+      </div>
+    </article>
+  </div>
+</div>

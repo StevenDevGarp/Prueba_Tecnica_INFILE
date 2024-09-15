@@ -1,0 +1,27 @@
+<div class="app flex justify-center items-center p-20">
+  <div class="app-card-list grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 max-w-6xl gap-32">
+    <article *ngFor="let newsItem of news; let i = index"
+      class="card shadow-lg rounded-3xl overflow-hidden"
+      [ngClass]="{
+        'bg-[#A2AAB1]': i % 3 === 0,
+        'bg-[#39b2ae]': i % 3 === 1,
+        'bg-[#d02e6e]': i % 3 === 2
+      }">
+      <div>
+        <img 
+          src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRXJA32WU4rBpx7maglqeEtt3ot1tPIRWptxA&s" 
+          alt="Noticia imagen" 
+          class="w-full h-48 object-cover"
+        />
+      </div>
+      <div class="card-body text-white p-6">
+        <h2 class="text-xl font-semibold mt-2">{{ newsItem.tituloNoticia }}</h2>
+        <p class="body-content mt-4">{{ newsItem.descripcionBreve }}</p>
+        <a class="button button-primary mt-4 text-white px-4 py-2 underline"
+        href="/news-details/{{ newsItem.noticiaId }}">
+          <i class="fa fa-chevron-right"></i> Ver más
+        </a>
+      </div>
+    </article>
+  </div>
+</div>
